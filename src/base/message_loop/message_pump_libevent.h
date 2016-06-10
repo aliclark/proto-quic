@@ -102,6 +102,7 @@ class BASE_EXPORT MessagePumpLibevent : public MessagePump {
                            int mode,
                            FileDescriptorWatcher *controller,
                            Watcher *delegate);
+  void SetEventBase(event_base* event_base);
 
   // MessagePump methods:
   void Run(Delegate* delegate) override;

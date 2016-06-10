@@ -24,6 +24,8 @@
 // The port the quic server will listen on.
 int32_t FLAGS_port = 6121;
 
+struct event_base;
+
 net::ProofSource* CreateProofSource(const base::FilePath& cert_path,
                                     const base::FilePath& key_path) {
   net::ProofSourceChromium* proof_source = new net::ProofSourceChromium();
@@ -34,6 +36,10 @@ net::ProofSource* CreateProofSource(const base::FilePath& cert_path,
 int quic_server_main(int argc, char* argv[]) {
   base::AtExitManager exit_manager;
   base::MessageLoopForIO message_loop;
+
+  //event_base* event_base = event_base_new();
+  //base::MessagePumpLibevent message_loop;
+  //message_loop.SetEventBase(event_base);
 
   base::CommandLine::Init(argc, argv);
   base::CommandLine* line = base::CommandLine::ForCurrentProcess();

@@ -194,6 +194,10 @@ bool MessagePumpLibevent::WatchFileDescriptor(int fd,
   return true;
 }
 
+void MessagePumpLibevent::SetEventBase(event_base* event_base) {
+	event_base_ = event_base;
+}
+
 // Tell libevent to break out of inner loop.
 static void timer_callback(int fd, short events, void *context)
 {
